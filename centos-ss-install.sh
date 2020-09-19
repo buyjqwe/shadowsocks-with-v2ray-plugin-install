@@ -145,10 +145,10 @@ ss_conf(){
     cat >/etc/shadowsocks-libev/config.json << EOF
 {
     "server":"0.0.0.0",
-    "server_port":443,
+    "server_port":8443,
     "password":"$shadowsockspwd",
     "timeout":300,
-    "method":"aes-256-gcm",
+    "method":"chacha20-ietf-poly1305",
     "plugin":"v2ray-plugin",
     "plugin_opts":"server;tls;cert=/etc/letsencrypt/live/$domain/fullchain.pem;key=/etc/letsencrypt/live/$domain/privkey.pem;host=$domain;loglevel=none"
 }
@@ -208,9 +208,9 @@ print_ss_info(){
     clear
     echo -e "\033[1;32mCongratulations, Shadowsocks-libev server install completed\033[0m"
     echo "Your Server IP        :  ${domain} "
-    echo "Your Server Port      :  443 "
+    echo "Your Server Port      :  8443 "
     echo "Your Password         :  ${shadowsockspwd} "
-    echo "Your Encryption Method:  aes-256-gcm "
+    echo "Your Encryption Method:  chacha20-ietf-poly1305 "
     echo "Your Plugin           :  v2ray-plugin"
     echo "Your Plugin options   :  tls;host=${domain}"
     echo "Enjoy it!"
